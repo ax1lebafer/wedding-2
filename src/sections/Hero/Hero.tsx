@@ -1,7 +1,7 @@
-import decor from '../../assets/decor.svg'
-import { wedding } from '../../data/wedding'
-import { useCountdown } from '../../hooks/useCountdown'
-import './Hero.scss'
+import decor from '../../assets/decor.svg';
+import { wedding } from '../../data/wedding';
+import { useCountdown } from '../../hooks/useCountdown';
+import './Hero.scss';
 
 export function Hero() {
   const { days, hours, minutes, seconds } = useCountdown(wedding.date);
@@ -14,7 +14,7 @@ export function Hero() {
 
       <div className="hero__content">
         <h1 className="hero__names">
-          <span style={{ marginBottom: '15px' }}>{wedding.names.first}</span>
+          <span style={{ marginBottom: '30px' }}>{wedding.names.first}</span>
           <span>{wedding.names.second}</span>
         </h1>
 
