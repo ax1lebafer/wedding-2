@@ -1,9 +1,10 @@
 import { PageLayout } from './layouts/PageLayout'
+import { Hero } from './sections'
 
 function App() {
   return (
     <PageLayout>
-      {/* Секции рендерятся здесь */}
+      <Hero />
     </PageLayout>
   )
 }

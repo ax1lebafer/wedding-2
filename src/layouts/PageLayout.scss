@@ -1,4 +1,4 @@
-@use "../styles/variables" as *;
+@use '../styles/variables' as *;
 
 .page {
   width: 100%;
@@ -6,6 +6,7 @@
   min-height: 100svh;
   margin-inline: auto;
   background: $color-surface;
+  overflow: hidden;
   box-shadow:
     -50px 0 40px rgba(0, 0, 0, 0.08),
     50px 0 40px rgba(0, 0, 0, 0.08);

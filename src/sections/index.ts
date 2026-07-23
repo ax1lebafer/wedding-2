@@ -1,2 +1,1 @@
-// Экспорт секций:
-// export { Hero } from './Hero/Hero'
+export { Hero } from './Hero/Hero'
