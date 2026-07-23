@@ -6,7 +6,7 @@
   min-height: 100svh;
   margin-inline: auto;
   background: $color-surface;
-  overflow: hidden;
+  overflow-x: hidden;
   box-shadow:
     -50px 0 40px rgba(0, 0, 0, 0.08),
     50px 0 40px rgba(0, 0, 0, 0.08);

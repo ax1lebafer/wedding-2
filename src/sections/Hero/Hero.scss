@@ -2,8 +2,8 @@
 
 .hero {
   position: relative;
-  overflow: hidden;
-  min-height: 120svh;
+  overflow: visible;
+  min-height: 105svh;
   display: flex;
   flex-direction: column;
 }
@@ -58,7 +58,12 @@
   top: -50px;
   bottom: auto;
   margin-top: auto;
+  margin-bottom: -280px;
   height: 500px;
+
+  @media (min-width: $bp-tablet) {
+    margin-bottom: -140px;
+  }
 }
 
 .hero__decor-img--bottom {
@@ -89,7 +94,7 @@
   justify-content: flex-start;
   gap: 24px;
   margin-top: -60px;
-  padding: 0 24px 64px;
+  padding: 0 24px 40px;
   text-align: center;
 
   @media (min-width: $bp-tablet) {

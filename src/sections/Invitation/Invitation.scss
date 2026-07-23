@@ -1,0 +1,66 @@
+@use '../../styles/variables' as *;
+
+.invitation {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  padding: 0;
+  text-align: center;
+  color: #111;
+
+  @media (min-width: $bp-tablet) {
+    gap: 48px;
+  }
+}
+
+.invitation__heading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: $font-script;
+  font-size: 36px;
+  font-weight: 400;
+  line-height: 1.25;
+
+  @media (min-width: $bp-tablet) {
+    font-size: 48px;
+  }
+}
+
+.invitation__heading--accent {
+  font-size: 42px;
+
+  @media (min-width: $bp-tablet) {
+    font-size: 56px;
+  }
+}
+
+.invitation__text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: $font-sans;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.55;
+
+  @media (min-width: $bp-tablet) {
+    font-size: 16px;
+  }
+}
+
+.invitation__details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  font-family: $font-sans;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.45;
+
+  @media (min-width: $bp-tablet) {
+    font-size: 16px;
+  }
+}
