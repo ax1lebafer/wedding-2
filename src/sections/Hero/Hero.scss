@@ -3,7 +3,7 @@
 .hero {
   position: relative;
   overflow: hidden;
-  min-height: 100svh;
+  min-height: 120svh;
   display: flex;
   flex-direction: column;
 }
@@ -16,11 +16,11 @@
   overflow: hidden;
   flex-shrink: 0;
   line-height: 0;
-  height: 180px;
+  height: 240px;
 
   @media (min-width: $bp-tablet) {
     top: -60px;
-    height: 300px;
+    height: 380px;
   }
 }
 
@@ -54,6 +54,32 @@
   }
 }
 
+.hero__decor--bottom {
+  top: auto;
+  bottom: 0;
+  margin-top: auto;
+}
+
+.hero__decor-img--bottom {
+  animation-name: hero-decor-motion-bottom;
+}
+
+@keyframes hero-decor-motion-bottom {
+  0% {
+    transform: rotate(0deg) scale(1, 1);
+    animation-timing-function: ease-in-out;
+  }
+
+  50% {
+    transform: rotate(-10deg) scale(1.2, 1.2);
+    animation-timing-function: ease-in-out;
+  }
+
+  100% {
+    transform: rotate(0deg) scale(1, 1);
+  }
+}
+
 .hero__content {
   flex: 1;
   display: flex;
@@ -61,12 +87,12 @@
   align-items: center;
   justify-content: flex-start;
   gap: 24px;
-  margin-top: -30px;
+  margin-top: -60px;
   padding: 0 24px 64px;
   text-align: center;
 
   @media (min-width: $bp-tablet) {
-    margin-top: -60px;
+    margin-top: -80px;
   }
 }
 
@@ -111,6 +137,7 @@
   border-bottom: 1px solid currentColor;
   padding-block: 4px;
   font-size: 12px;
+  font-weight: 700;
   letter-spacing: 4px;
   line-height: 1;
   text-indent: 4px;
@@ -136,6 +163,7 @@
 
 .hero__date-weekday {
   font-size: 12px;
+  font-weight: 700;
   letter-spacing: 5px;
   text-indent: 5px;
   text-transform: uppercase;
@@ -155,12 +183,13 @@
   gap: 20px;
   width: 100%;
   max-width: 320px;
-  margin-top: 16px;
+  margin-top: 0;
   color: #111;
 }
 
 .hero__timer-title {
   font-size: 9px;
+  font-weight: 700;
   letter-spacing: 3px;
   text-indent: 3px;
   text-transform: uppercase;
@@ -172,10 +201,14 @@
 }
 
 .hero__timer-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  width: 100%;
-  gap: 6px;
+  display: flex;
+  justify-content: center;
+  width: auto;
+  gap: 0;
+
+  @media (min-width: $bp-tablet) {
+    gap: 6px;
+  }
 }
 
 .hero__timer-item {
@@ -183,6 +216,11 @@
   flex-direction: column;
   align-items: center;
   gap: 6px;
+  padding-inline: 6px;
+
+  @media (min-width: $bp-tablet) {
+    padding-inline: 12px;
+  }
 }
 
 .hero__timer-value {
@@ -198,6 +236,7 @@
 
 .hero__timer-label {
   font-size: 8px;
+  font-weight: 700;
   letter-spacing: 1px;
   text-indent: 1px;
   text-transform: uppercase;

@@ -1,10 +1,11 @@
-import decor from '../../assets/decor.svg';
-import { wedding } from '../../data/wedding';
-import { useCountdown } from '../../hooks/useCountdown';
-import './Hero.scss';
+import decor from '../../assets/decor.svg'
+import decorBottom from '../../assets/decor_2.svg'
+import { wedding } from '../../data/wedding'
+import { useCountdown } from '../../hooks/useCountdown'
+import './Hero.scss'
 
 export function Hero() {
-  const { days, hours, minutes, seconds } = useCountdown(wedding.date);
+  const { days, hours, minutes, seconds } = useCountdown(wedding.date)
 
   return (
     <section className="hero">
@@ -51,6 +52,15 @@ export function Hero() {
           </div>
         </div>
       </div>
+
+      <div className="hero__decor hero__decor--bottom">
+        <img
+          className="hero__decor-img hero__decor-img--bottom"
+          src={decorBottom}
+          alt=""
+          aria-hidden
+        />
+      </div>
     </section>
-  );
+  )
 }
