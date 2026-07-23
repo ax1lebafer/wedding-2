@@ -76,6 +76,8 @@
 }
 
 .calendar__day {
+  position: relative;
+  z-index: 0;
   font-family: $font-sans;
   font-size: 15px;
   font-weight: 500;
@@ -88,4 +90,75 @@
 
 .calendar__day--outside {
   color: #c4c4c4;
+}
+
+.calendar__day--highlight {
+  z-index: 2;
+}
+
+.calendar__heart {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 42px;
+  height: auto;
+  max-width: none;
+  pointer-events: none;
+  z-index: 3;
+  transform: translate(-50%, -50%);
+
+  @media (min-width: $bp-tablet) {
+    width: 48px;
+  }
+}
+
+.calendar__heart--settled {
+  opacity: 1;
+}
+
+.calendar-heart-stamp {
+  position: fixed;
+  z-index: 1000;
+  height: auto;
+  max-width: none;
+  pointer-events: none;
+  transform: translate(-50%, -50%) scale(12);
+  transform-origin: center center;
+  will-change: transform, opacity, filter;
+  animation: calendar-heart-stamp 2.2s cubic-bezier(0.33, 0.1, 0.25, 1) forwards;
+}
+
+@keyframes calendar-heart-stamp {
+  0% {
+    opacity: 0;
+    filter: blur(8px);
+    transform: translate(-50%, -50%) scale(12);
+  }
+
+  22% {
+    opacity: 0.7;
+    filter: blur(3px);
+    transform: translate(-50%, -50%) scale(9);
+  }
+
+  78% {
+    opacity: 1;
+    filter: blur(0);
+    transform: translate(-50%, -50%) scale(1.04);
+  }
+
+  100% {
+    opacity: 1;
+    filter: blur(0);
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .calendar-heart-stamp {
+    animation: none;
+    opacity: 1;
+    filter: none;
+    transform: translate(-50%, -50%) scale(1);
+  }
 }

@@ -28,7 +28,12 @@ export function Invitation() {
         <span>Начало в {wedding.startTime}</span>
       </p>
 
-      <Calendar year={2026} monthIndex={8} monthLabel="Сентябрь" />
+      <Calendar
+        year={2026}
+        monthIndex={8}
+        monthLabel="Сентябрь"
+        highlightDay={Number(wedding.dateDisplay.day)}
+      />
     </section>
   )
 }
