@@ -1,5 +1,11 @@
+import { PageLayout } from './layouts/PageLayout'
+
 function App() {
-  return null
+  return (
+    <PageLayout>
+      {/* Секции рендерятся здесь */}
+    </PageLayout>
+  )
 }
 
 export default App

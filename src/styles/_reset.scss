@@ -1,3 +1,5 @@
+@use 'variables' as *;
+
 *,
 *::before,
 *::after {
@@ -13,7 +15,7 @@ body,
 }
 
 body {
-  background: #e0e0e0;
+  background: $color-page-bg;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

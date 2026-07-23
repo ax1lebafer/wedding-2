@@ -1,0 +1,12 @@
+@use "../styles/variables" as *;
+
+.page {
+  width: 100%;
+  max-width: $page-max-width;
+  min-height: 100svh;
+  margin-inline: auto;
+  background: $color-surface;
+  box-shadow:
+    -50px 0 40px rgba(0, 0, 0, 0.08),
+    50px 0 40px rgba(0, 0, 0, 0.08);
+}
