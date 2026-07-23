@@ -1,5 +1,6 @@
 import decor from '../../assets/decor.svg'
 import decorBottom from '../../assets/decor_2.svg'
+import arrow from '../../assets/arrow.png'
 import { wedding } from '../../data/wedding'
 import { useCountdown } from '../../hooks/useCountdown'
 import './Hero.scss'
@@ -51,6 +52,13 @@ export function Hero() {
             </div>
           </div>
         </div>
+
+        <img
+          className="hero__arrow"
+          src={arrow}
+          alt=""
+          aria-hidden
+        />
       </div>
 
       <div className="hero__decor hero__decor--bottom">
