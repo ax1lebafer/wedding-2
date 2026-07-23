@@ -1,3 +1,4 @@
+import { Calendar } from '../../components/Calendar/Calendar'
 import { wedding } from '../../data/wedding'
 import './Invitation.scss'
 
@@ -15,9 +16,7 @@ export function Invitation() {
         <span>вам важную новость!</span>
       </p>
 
-      <h2 className="invitation__heading">
-        Мы женимся!
-      </h2>
+      <h2 className="invitation__heading">Мы женимся!</h2>
 
       <p className="invitation__text">
         <span>И мы очень хотим разделить</span>
@@ -28,6 +27,9 @@ export function Invitation() {
         <span>Ждем вас на нашей свадьбе!</span>
         <span>Начало в {wedding.startTime}</span>
       </p>
+
+      <Calendar year={2026} monthIndex={8} monthLabel="Сентябрь" />
     </section>
   )
 }
+

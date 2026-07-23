@@ -5,12 +5,13 @@
   flex-direction: column;
   align-items: center;
   gap: 24px;
-  padding: 0;
+  padding: 0 0 64px;
   text-align: center;
   color: #111;
 
   @media (min-width: $bp-tablet) {
     gap: 28px;
+    padding-bottom: 80px;
   }
 }
 
