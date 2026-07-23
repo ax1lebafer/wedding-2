@@ -15,7 +15,7 @@ export function Invitation() {
         <span>вам важную новость!</span>
       </p>
 
-      <h2 className="invitation__heading invitation__heading--accent">
+      <h2 className="invitation__heading">
         Мы женимся!
       </h2>
 
