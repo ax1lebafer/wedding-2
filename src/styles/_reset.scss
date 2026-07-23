@@ -16,6 +16,8 @@ body,
 
 body {
   background: $color-page-bg;
+  font-family: $font-sans;
+  font-weight: 400;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

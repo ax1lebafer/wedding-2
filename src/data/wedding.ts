@@ -3,8 +3,12 @@ export const wedding = {
     first: 'Талгат',
     second: 'Айжана',
   },
-  dateLabel: '11 сентября 2026',
+  dateDisplay: {
+    day: '11',
+    month: 'сентябрь',
+    year: '2026',
+    weekday: 'пятница',
+  },
   /** Дата и время свадьбы для таймера */
   date: new Date('2026-09-11T15:00:00'),
 }
-

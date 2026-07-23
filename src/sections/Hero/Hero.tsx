@@ -3,10 +3,8 @@ import { wedding } from '../../data/wedding'
 import { useCountdown } from '../../hooks/useCountdown'
 import './Hero.scss'
 
-const pad = (value: number) => String(value).padStart(2, '0')
-
 export function Hero() {
-  const { days, hours, minutes, seconds } = useCountdown(wedding.date)
+  const { days, hours, minutes, seconds } = useCountdown(wedding.date);
 
   return (
     <section className="hero">
@@ -16,30 +14,43 @@ export function Hero() {
 
       <div className="hero__content">
         <h1 className="hero__names">
-          <span>{wedding.names.first}</span>
+          <span style={{ marginBottom: '15px' }}>{wedding.names.first}</span>
           <span>{wedding.names.second}</span>
         </h1>
-        <p className="hero__date">{wedding.dateLabel}</p>
 
-        <div className="hero__timer" aria-label="До свадьбы осталось">
-          <div className="hero__timer-item">
-            <span className="hero__timer-value">{pad(days)}</span>
-            <span className="hero__timer-label">дней</span>
+        <div className="hero__date">
+          <div className="hero__date-row">
+            <span className="hero__date-side">{wedding.dateDisplay.month}</span>
+            <span className="hero__date-day">{wedding.dateDisplay.day}</span>
+            <span className="hero__date-side">{wedding.dateDisplay.year}</span>
           </div>
-          <div className="hero__timer-item">
-            <span className="hero__timer-value">{pad(hours)}</span>
-            <span className="hero__timer-label">часов</span>
-          </div>
-          <div className="hero__timer-item">
-            <span className="hero__timer-value">{pad(minutes)}</span>
-            <span className="hero__timer-label">минут</span>
-          </div>
-          <div className="hero__timer-item">
-            <span className="hero__timer-value">{pad(seconds)}</span>
-            <span className="hero__timer-label">секунд</span>
+          <span className="hero__date-weekday">
+            {wedding.dateDisplay.weekday}
+          </span>
+        </div>
+
+        <div className="hero__timer">
+          <p className="hero__timer-title">До свадьбы осталось</p>
+          <div className="hero__timer-grid">
+            <div className="hero__timer-item">
+              <span className="hero__timer-value">{days}</span>
+              <span className="hero__timer-label">дней</span>
+            </div>
+            <div className="hero__timer-item">
+              <span className="hero__timer-value">{hours}</span>
+              <span className="hero__timer-label">часов</span>
+            </div>
+            <div className="hero__timer-item">
+              <span className="hero__timer-value">{minutes}</span>
+              <span className="hero__timer-label">минут</span>
+            </div>
+            <div className="hero__timer-item">
+              <span className="hero__timer-value">{seconds}</span>
+              <span className="hero__timer-label">секунд</span>
+            </div>
           </div>
         </div>
       </div>
     </section>
-  )
+  );
 }
