@@ -1,3 +1,4 @@
+import decorBottom from '../../assets/decor_2.svg'
 import sborGostey from '../../assets/sbor_gostey.png'
 import register from '../../assets/register.png'
 import zal from '../../assets/zal.png'
@@ -72,6 +73,15 @@ export function Schedule() {
           </li>
         ))}
       </ol>
+
+      <div className="schedule__decor">
+        <img
+          className="schedule__decor-img"
+          src={decorBottom}
+          alt=""
+          aria-hidden
+        />
+      </div>
     </section>
   )
 }
