@@ -1,3 +1,4 @@
+import decor from '../../assets/decor_3.svg'
 import { Calendar } from '../../components/Calendar/Calendar'
 import { wedding } from '../../data/wedding'
 import './Invitation.scss'
@@ -34,7 +35,15 @@ export function Invitation() {
         monthLabel="Сентябрь"
         highlightDay={Number(wedding.dateDisplay.day)}
       />
+
+      <div className="invitation__decor">
+        <img
+          className="invitation__decor-img"
+          src={decor}
+          alt=""
+          aria-hidden
+        />
+      </div>
     </section>
   )
 }
-

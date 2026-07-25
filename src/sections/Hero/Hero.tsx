@@ -1,4 +1,4 @@
-import decor from '../../assets/decor.svg'
+import { DecorBand } from '../../components/DecorBand/DecorBand'
 import decorBottom from '../../assets/decor_2.svg'
 import arrow from '../../assets/arrow.png'
 import { wedding } from '../../data/wedding'
@@ -10,9 +10,7 @@ export function Hero() {
 
   return (
     <section className="hero">
-      <div className="hero__decor">
-        <img className="hero__decor-img" src={decor} alt="" aria-hidden />
-      </div>
+      <DecorBand />
 
       <div className="hero__content">
         <h1 className="hero__names">

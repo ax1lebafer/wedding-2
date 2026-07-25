@@ -10,18 +10,11 @@
 
 .hero__decor {
   position: relative;
-  top: -40px;
   left: 0;
   width: 100%;
   overflow: hidden;
   flex-shrink: 0;
   line-height: 0;
-  height: 240px;
-
-  @media (min-width: $bp-tablet) {
-    top: -60px;
-    height: 380px;
-  }
 }
 
 .hero__decor-img {
@@ -31,26 +24,9 @@
   height: auto;
   margin-inline: -20%;
   transform-origin: center center;
-  animation: hero-decor-motion 14s infinite linear;
 
   @media (min-width: $bp-tablet) {
     width: 960px;
-  }
-}
-
-@keyframes hero-decor-motion {
-  0% {
-    transform: rotate(0deg) scale(1, 1);
-    animation-timing-function: ease-in-out;
-  }
-
-  50% {
-    transform: rotate(10deg) scale(1.2, 1.2);
-    animation-timing-function: ease-in-out;
-  }
-
-  100% {
-    transform: rotate(0deg) scale(1, 1);
   }
 }
 
@@ -67,7 +43,7 @@
 }
 
 .hero__decor-img--bottom {
-  animation-name: hero-decor-motion-bottom;
+  animation: hero-decor-motion-bottom 14s infinite linear;
 }
 
 @keyframes hero-decor-motion-bottom {
