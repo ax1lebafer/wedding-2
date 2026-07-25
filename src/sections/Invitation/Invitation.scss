@@ -76,6 +76,45 @@
   }
 }
 
+.invitation__copy {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+
+  @media (min-width: $bp-tablet) {
+    gap: 28px;
+  }
+}
+
+.invitation__reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity 1.1s ease,
+    transform 1.1s ease;
+}
+
+.invitation__reveal--visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.invitation__calendar {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  transition-delay: 0.15s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .invitation__reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
 .invitation__text {
   display: flex;
   flex-direction: column;
