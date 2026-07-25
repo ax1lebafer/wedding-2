@@ -1,5 +1,12 @@
 import { PageLayout } from './layouts/PageLayout'
-import { DressCode, Hero, Invitation, Schedule, Venue } from './sections'
+import {
+  DressCode,
+  Hero,
+  Invitation,
+  Rsvp,
+  Schedule,
+  Venue,
+} from './sections'
 
 function App() {
   return (
@@ -9,6 +16,7 @@ function App() {
       <Schedule />
       <Venue />
       <DressCode />
+      <Rsvp />
     </PageLayout>
   )
 }

@@ -1,0 +1,199 @@
+@use '../../styles/variables' as *;
+
+.rsvp {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+  padding: 48px 24px 80px;
+  text-align: center;
+  color: #111;
+
+  @media (min-width: $bp-tablet) {
+    gap: 32px;
+    padding: 64px 24px 100px;
+  }
+}
+
+.rsvp__heading {
+  font-family: $font-script;
+  font-size: 48px;
+  font-weight: 400;
+  line-height: 1.25;
+
+  @media (min-width: $bp-tablet) {
+    font-size: 52px;
+  }
+}
+
+.rsvp__card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 420px;
+  padding: 32px 24px 36px;
+  border: 1px solid #111;
+  border-radius: 18px;
+  background: transparent;
+
+  @media (min-width: $bp-tablet) {
+    max-width: 460px;
+    padding: 40px 36px 44px;
+    border-radius: 20px;
+  }
+}
+
+.rsvp__lead {
+  margin-bottom: 28px;
+  font-family: $font-sans;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.45;
+}
+
+.rsvp__field {
+  display: block;
+  width: 100%;
+  margin-bottom: 28px;
+}
+
+.rsvp__sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.rsvp__input {
+  width: 100%;
+  padding: 10px 4px 12px;
+  border: 0;
+  border-bottom: 1px solid #111;
+  border-radius: 0;
+  background: transparent;
+  font-family: $font-sans;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.3;
+  color: #111;
+  text-align: center;
+  outline: none;
+
+  &::placeholder {
+    color: #9a9a9a;
+  }
+
+  &:focus {
+    border-bottom-color: #111;
+  }
+
+  &:disabled {
+    opacity: 0.6;
+  }
+}
+
+.rsvp__fieldset {
+  width: 100%;
+  margin: 0 0 28px;
+  padding: 0;
+  border: 0;
+}
+
+.rsvp__question {
+  margin-bottom: 18px;
+  padding: 0;
+  font-family: $font-sans;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.rsvp__options {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 14px;
+  width: 100%;
+}
+
+.rsvp__option {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  text-align: left;
+  cursor: pointer;
+}
+
+.rsvp__radio {
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  margin-top: 2px;
+  accent-color: #111;
+  cursor: pointer;
+
+  &:disabled {
+    cursor: default;
+  }
+}
+
+.rsvp__option-text {
+  font-family: $font-sans;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+.rsvp__submit {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 180px;
+  padding: 12px 28px;
+  border: 1px solid #111;
+  border-radius: 999px;
+  font-family: $font-sans;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.2;
+  color: #111;
+  background: transparent;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease, opacity 0.2s ease;
+
+  @media (min-width: $bp-tablet) {
+    font-size: 16px;
+    padding: 14px 32px;
+  }
+
+  &:hover:not(:disabled) {
+    background: #111;
+    color: #fff;
+  }
+
+  &:disabled {
+    opacity: 0.4;
+    cursor: default;
+  }
+}
+
+.rsvp__message {
+  margin-top: 16px;
+  font-family: $font-sans;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.rsvp__message--success {
+  color: #072e00;
+}
+
+.rsvp__message--error {
+  color: #8b1a1a;
+}
