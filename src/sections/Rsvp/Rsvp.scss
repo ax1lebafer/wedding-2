@@ -197,3 +197,70 @@
 .rsvp__message--error {
   color: #8b1a1a;
 }
+
+.rsvp__organizer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+  width: 100%;
+  max-width: 520px;
+  margin-top: 8px;
+
+  @media (min-width: $bp-tablet) {
+    gap: 32px;
+    margin-top: 12px;
+  }
+}
+
+.rsvp__organizer-text {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  font-family: $font-sans;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.55;
+
+  @media (min-width: $bp-tablet) {
+    gap: 16px;
+  }
+}
+
+.rsvp__organizer-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 220px;
+  padding: 12px 28px;
+  border: 1px solid #111;
+  border-radius: 999px;
+  font-family: $font-sans;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.2;
+  color: #111;
+  background: transparent;
+  transition: background 0.2s ease, color 0.2s ease;
+
+  @media (min-width: $bp-tablet) {
+    font-size: 16px;
+    padding: 14px 32px;
+  }
+
+  &:hover {
+    background: #111;
+    color: #fff;
+  }
+}
+
+.rsvp__deadline {
+  font-family: $font-sans;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.45;
+
+  @media (min-width: $bp-tablet) {
+    font-size: 16px;
+  }
+}
