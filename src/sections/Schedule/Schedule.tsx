@@ -4,6 +4,7 @@ import register from '../../assets/register.png'
 import zal from '../../assets/zal.png'
 import tort from '../../assets/tort.png'
 import finalIcon from '../../assets/final.png'
+import { useInView } from '../../hooks/useInView'
 import './Schedule.scss'
 
 const events = [
@@ -45,32 +46,75 @@ const events = [
   },
 ]
 
+type ScheduleEvent = (typeof events)[number]
+
+function ScheduleItem({ event }: { event: ScheduleEvent }) {
+  const { ref, isInView } = useInView<HTMLLIElement>({
+    threshold: 0.35,
+  })
+
+  return (
+    <li
+      ref={ref}
+      className={[
+        'schedule__item',
+        `schedule__item--${event.side}`,
+        isInView ? 'schedule__item--visible' : '',
+      ]
+        .filter(Boolean)
+        .join(' ')}
+    >
+      <span className="schedule__dot" aria-hidden />
+      <div
+        className={[
+          'schedule__card',
+          'schedule__reveal',
+          `schedule__reveal--${event.side}`,
+          isInView ? 'schedule__reveal--visible' : '',
+        ]
+          .filter(Boolean)
+          .join(' ')}
+      >
+        <img
+          className="schedule__icon"
+          src={event.icon}
+          alt=""
+          aria-hidden
+        />
+        <p className="schedule__title">{event.title}</p>
+        {event.detail ? (
+          <p className="schedule__detail">{event.detail}</p>
+        ) : null}
+        <p className="schedule__time">{event.time}</p>
+      </div>
+    </li>
+  )
+}
+
 export function Schedule() {
+  const { ref: headingRef, isInView: headingVisible } =
+    useInView<HTMLHeadingElement>({
+      threshold: 0.4,
+    })
+
   return (
     <section className="schedule">
-      <h2 className="schedule__heading">План мероприятия</h2>
+      <h2
+        ref={headingRef}
+        className={[
+          'schedule__heading',
+          'schedule__reveal',
+          headingVisible ? 'schedule__reveal--visible' : '',
+        ]
+          .filter(Boolean)
+          .join(' ')}
+      >
+        План мероприятия
+      </h2>
 
       <ol className="schedule__timeline">
         {events.map((event) => (
-          <li
-            key={event.id}
-            className={`schedule__item schedule__item--${event.side}`}
-          >
-            <span className="schedule__dot" aria-hidden />
-            <div className="schedule__card">
-              <img
-                className="schedule__icon"
-                src={event.icon}
-                alt=""
-                aria-hidden
-              />
-              <p className="schedule__title">{event.title}</p>
-              {event.detail ? (
-                <p className="schedule__detail">{event.detail}</p>
-              ) : null}
-              <p className="schedule__time">{event.time}</p>
-            </div>
-          </li>
+          <ScheduleItem key={event.id} event={event} />
         ))}
       </ol>
 
