@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from 'react'
-import { createPortal } from 'react-dom'
 import heart from '../../assets/heart.png'
 import './Calendar.scss'
 
@@ -35,12 +34,6 @@ function buildMonthDays(year: number, monthIndex: number): CalendarDay[] {
   return cells
 }
 
-type StampTarget = {
-  x: number
-  y: number
-  size: number
-}
-
 type CalendarProps = {
   year: number
   monthIndex: number
@@ -56,9 +49,7 @@ export function Calendar({
 }: CalendarProps) {
   const days = buildMonthDays(year, monthIndex)
   const rootRef = useRef<HTMLDivElement>(null)
-  const highlightRef = useRef<HTMLSpanElement>(null)
-  const [stamp, setStamp] = useState<StampTarget | null>(null)
-  const [heartLanded, setHeartLanded] = useState(false)
+  const [animateHeart, setAnimateHeart] = useState(false)
 
   useEffect(() => {
     const root = rootRef.current
@@ -67,25 +58,7 @@ export function Calendar({
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (!entry?.isIntersecting) return
-
-        const cell = highlightRef.current
-        if (!cell) return
-
-        const rect = cell.getBoundingClientRect()
-        const size = window.matchMedia('(min-width: 768px)').matches ? 48 : 42
-        const reducedMotion = window.matchMedia(
-          '(prefers-reduced-motion: reduce)',
-        ).matches
-
-        if (reducedMotion) {
-          setHeartLanded(true)
-        } else {
-          setStamp({
-            x: rect.left + rect.width / 2,
-            y: rect.top + rect.height / 2,
-            size,
-          })
-        }
+        setAnimateHeart(true)
         observer.disconnect()
       },
       { threshold: 0.45 },
@@ -96,7 +69,12 @@ export function Calendar({
   }, [highlightDay])
 
   return (
-    <div ref={rootRef} className="calendar">
+    <div
+      ref={rootRef}
+      className={
+        animateHeart ? 'calendar calendar--heart-animate' : 'calendar'
+      }
+    >
       <div className="calendar__header">
         <span className="calendar__month">{monthLabel}</span>
         <span className="calendar__year">{year}</span>
@@ -117,7 +95,6 @@ export function Calendar({
           return (
             <span
               key={`${cell.day}-${index}`}
-              ref={isHighlight ? highlightRef : undefined}
               className={[
                 'calendar__day',
                 cell.outside ? 'calendar__day--outside' : '',
@@ -127,9 +104,9 @@ export function Calendar({
                 .join(' ')}
             >
               {cell.day}
-              {isHighlight && heartLanded ? (
+              {isHighlight ? (
                 <img
-                  className="calendar__heart calendar__heart--settled"
+                  className="calendar__heart"
                   src={heart}
                   alt=""
                   aria-hidden
@@ -139,24 +116,6 @@ export function Calendar({
           )
         })}
       </div>
-
-      {stamp && !heartLanded
-        ? createPortal(
-            <img
-              className="calendar-heart-stamp"
-              src={heart}
-              alt=""
-              aria-hidden
-              style={{
-                left: stamp.x,
-                top: stamp.y,
-                width: stamp.size,
-              }}
-              onAnimationEnd={() => setHeartLanded(true)}
-            />,
-            document.body,
-          )
-        : null}
     </div>
   )
 }

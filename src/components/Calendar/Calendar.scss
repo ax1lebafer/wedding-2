@@ -5,6 +5,7 @@
   max-width: 260px;
   margin-top: 24px;
   color: #111;
+  overflow: visible;
 
   @media (min-width: $bp-tablet) {
     max-width: 270px;
@@ -69,6 +70,7 @@
 
 .calendar__grid {
   row-gap: 14px;
+  overflow: visible;
 
   @media (min-width: $bp-tablet) {
     row-gap: 10px;
@@ -93,7 +95,8 @@
 }
 
 .calendar__day--highlight {
-  z-index: 2;
+  z-index: 5;
+  overflow: visible;
 }
 
 .calendar__heart {
@@ -103,28 +106,19 @@
   width: 42px;
   height: auto;
   max-width: none;
+  opacity: 0;
   pointer-events: none;
-  z-index: 3;
-  transform: translate(-50%, -50%);
+  z-index: 6;
+  transform: translate(-50%, -50%) scale(12);
+  transform-origin: center center;
+  will-change: transform, opacity, filter;
 
   @media (min-width: $bp-tablet) {
     width: 48px;
   }
 }
 
-.calendar__heart--settled {
-  opacity: 1;
-}
-
-.calendar-heart-stamp {
-  position: fixed;
-  z-index: 1000;
-  height: auto;
-  max-width: none;
-  pointer-events: none;
-  transform: translate(-50%, -50%) scale(12);
-  transform-origin: center center;
-  will-change: transform, opacity, filter;
+.calendar--heart-animate .calendar__heart {
   animation: calendar-heart-stamp 2.2s cubic-bezier(0.33, 0.1, 0.25, 1) forwards;
 }
 
@@ -155,10 +149,13 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .calendar-heart-stamp {
-    animation: none;
+  .calendar__heart {
     opacity: 1;
     filter: none;
     transform: translate(-50%, -50%) scale(1);
+  }
+
+  .calendar--heart-animate .calendar__heart {
+    animation: none;
   }
 }
