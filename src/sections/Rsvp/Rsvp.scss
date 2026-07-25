@@ -19,10 +19,41 @@
   font-family: $font-script;
   font-size: 48px;
   font-weight: 400;
-  line-height: 1.25;
+  line-height: 1.5;
+  padding: 0.15em 0.2em;
+  overflow: visible;
 
   @media (min-width: $bp-tablet) {
     font-size: 52px;
+  }
+}
+
+.rsvp__reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity 1s ease,
+    transform 1s ease;
+}
+
+.rsvp__reveal--visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.rsvp__card.rsvp__reveal {
+  transition-delay: 0.08s;
+}
+
+.rsvp__organizer.rsvp__reveal {
+  transition-delay: 0.12s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rsvp__reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
   }
 }
 

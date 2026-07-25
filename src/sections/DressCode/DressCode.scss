@@ -1,18 +1,20 @@
 @use '../../styles/variables' as *;
 
 .dress-code {
+  position: relative;
+  z-index: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 24px;
-  padding: 48px 24px 0;
+  padding: 72px 24px 0;
   text-align: center;
   color: #111;
   overflow: visible;
 
   @media (min-width: $bp-tablet) {
     gap: 28px;
-    padding-top: 64px;
+    padding-top: 80px;
   }
 }
 
@@ -20,10 +22,33 @@
   font-family: $font-script;
   font-size: 48px;
   font-weight: 400;
-  line-height: 1.25;
+  line-height: 1.5;
+  padding: 0.15em 0.2em;
+  overflow: visible;
 
   @media (min-width: $bp-tablet) {
     font-size: 52px;
+  }
+}
+
+.dress-code__reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity 1s ease,
+    transform 1s ease;
+}
+
+.dress-code__reveal--visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dress-code__reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
   }
 }
 

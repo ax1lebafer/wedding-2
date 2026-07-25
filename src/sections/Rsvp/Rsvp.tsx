@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import type { FormEvent } from 'react'
+import { useInView } from '../../hooks/useInView'
 import './Rsvp.scss'
 
 const ATTENDANCE_OPTIONS = [
@@ -21,6 +22,14 @@ export function Rsvp() {
   const [attendance, setAttendance] = useState<Attendance | ''>('')
   const [status, setStatus] = useState<SubmitStatus>('idle')
   const [errorMessage, setErrorMessage] = useState('')
+
+  const { ref: headingRef, isInView: headingVisible } =
+    useInView<HTMLHeadingElement>({ threshold: 0.4 })
+  const { ref: cardRef, isInView: cardVisible } = useInView<HTMLFormElement>({
+    threshold: 0.2,
+  })
+  const { ref: organizerRef, isInView: organizerVisible } =
+    useInView<HTMLDivElement>({ threshold: 0.2 })
 
   const canSubmit =
     name.trim().length > 0 && attendance !== '' && status !== 'loading'
@@ -73,9 +82,30 @@ export function Rsvp() {
 
   return (
     <section className="rsvp">
-      <h2 className="rsvp__heading">Анкета гостя</h2>
+      <h2
+        ref={headingRef}
+        className={[
+          'rsvp__heading',
+          'rsvp__reveal',
+          headingVisible ? 'rsvp__reveal--visible' : '',
+        ]
+          .filter(Boolean)
+          .join(' ')}
+      >
+        Анкета гостя
+      </h2>
 
-      <form className="rsvp__card" onSubmit={handleSubmit}>
+      <form
+        ref={cardRef}
+        className={[
+          'rsvp__card',
+          'rsvp__reveal',
+          cardVisible ? 'rsvp__reveal--visible' : '',
+        ]
+          .filter(Boolean)
+          .join(' ')}
+        onSubmit={handleSubmit}
+      >
         <p className="rsvp__lead">Пожалуйста, подтвердите свое присутствие</p>
 
         <label className="rsvp__field">
@@ -146,7 +176,16 @@ export function Rsvp() {
         ) : null}
       </form>
 
-      <div className="rsvp__organizer">
+      <div
+        ref={organizerRef}
+        className={[
+          'rsvp__organizer',
+          'rsvp__reveal',
+          organizerVisible ? 'rsvp__reveal--visible' : '',
+        ]
+          .filter(Boolean)
+          .join(' ')}
+      >
         <div className="rsvp__organizer-text">
           <p>По всем вопросам обращаться к организатору.</p>
           <p>

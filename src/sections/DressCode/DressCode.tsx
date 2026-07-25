@@ -1,12 +1,38 @@
 import decorBottom from '../../assets/decor_2.svg'
+import { useInView } from '../../hooks/useInView'
 import './DressCode.scss'
 
 export function DressCode() {
+  const { ref: headingRef, isInView: headingVisible } =
+    useInView<HTMLHeadingElement>({ threshold: 0.4 })
+  const { ref: textRef, isInView: textVisible } =
+    useInView<HTMLParagraphElement>({ threshold: 0.25 })
+
   return (
     <section className="dress-code">
-      <h2 className="dress-code__heading">Дресс-код</h2>
+      <h2
+        ref={headingRef}
+        className={[
+          'dress-code__heading',
+          'dress-code__reveal',
+          headingVisible ? 'dress-code__reveal--visible' : '',
+        ]
+          .filter(Boolean)
+          .join(' ')}
+      >
+        Дресс-код
+      </h2>
 
-      <p className="dress-code__text">
+      <p
+        ref={textRef}
+        className={[
+          'dress-code__text',
+          'dress-code__reveal',
+          textVisible ? 'dress-code__reveal--visible' : '',
+        ]
+          .filter(Boolean)
+          .join(' ')}
+      >
         Самое главное для нас – это ваше присутствие и радость в этот
         особенный день! Мы хотим, чтобы вы чувствовали себя максимально
         комфортно и непринужденно. Поэтому будем счастливы видеть вас в
