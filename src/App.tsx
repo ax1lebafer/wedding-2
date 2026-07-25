@@ -1,5 +1,5 @@
 import { PageLayout } from './layouts/PageLayout'
-import { Hero, Invitation, Schedule } from './sections'
+import { Hero, Invitation, Schedule, Venue } from './sections'
 
 function App() {
   return (
@@ -7,6 +7,7 @@ function App() {
       <Hero />
       <Invitation />
       <Schedule />
+      <Venue />
     </PageLayout>
   )
 }

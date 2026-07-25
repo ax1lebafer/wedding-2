@@ -1,0 +1,131 @@
+@use '../../styles/variables' as *;
+
+.venue {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  padding: 48px 24px 0;
+  text-align: center;
+  color: #111;
+  overflow: visible;
+
+  @media (min-width: $bp-tablet) {
+    gap: 28px;
+    padding-top: 64px;
+  }
+}
+
+.venue__heading {
+  font-family: $font-script;
+  font-size: 48px;
+  font-weight: 400;
+  line-height: 1.25;
+
+  @media (min-width: $bp-tablet) {
+    font-size: 52px;
+  }
+}
+
+.venue__address {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: $font-sans;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.55;
+}
+
+.venue__map-wrap {
+  width: 100%;
+  max-width: none;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+
+  @media (min-width: $bp-tablet) {
+    max-width: 320px;
+  }
+}
+
+.venue__map {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.venue__route {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 220px;
+  padding: 12px 28px;
+  border: 1px solid #111;
+  border-radius: 999px;
+  font-family: $font-sans;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.2;
+  color: #111;
+  background: transparent;
+  transition: background 0.2s ease, color 0.2s ease;
+
+  @media (min-width: $bp-tablet) {
+    font-size: 16px;
+    padding: 14px 32px;
+  }
+
+  &:hover {
+    background: #111;
+    color: #fff;
+  }
+}
+
+.venue__decor {
+  position: relative;
+  width: calc(100% + 48px);
+  margin-inline: -24px;
+  height: 340px;
+  margin-top: -70px;
+  overflow: visible;
+  flex-shrink: 0;
+  line-height: 0;
+
+  @media (min-width: $bp-tablet) {
+    height: 500px;
+    margin-top: -180px;
+  }
+}
+
+.venue__decor-img {
+  display: block;
+  width: 560px;
+  max-width: none;
+  height: auto;
+  margin-top: 28px;
+  margin-inline: -20%;
+  transform-origin: center center;
+  animation: venue-decor-motion 14s infinite linear;
+
+  @media (min-width: $bp-tablet) {
+    width: 960px;
+    margin-top: 36px;
+  }
+}
+
+@keyframes venue-decor-motion {
+  0% {
+    transform: rotate(0deg) scale(1, 1);
+    animation-timing-function: ease-in-out;
+  }
+
+  50% {
+    transform: rotate(10deg) scale(1.2, 1.2);
+    animation-timing-function: ease-in-out;
+  }
+
+  100% {
+    transform: rotate(0deg) scale(1, 1);
+  }
+}
