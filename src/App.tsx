@@ -1,11 +1,12 @@
 import { PageLayout } from './layouts/PageLayout'
-import { Hero, Invitation } from './sections'
+import { Hero, Invitation, Schedule } from './sections'
 
 function App() {
   return (
     <PageLayout>
       <Hero />
       <Invitation />
+      <Schedule />
     </PageLayout>
   )
 }
