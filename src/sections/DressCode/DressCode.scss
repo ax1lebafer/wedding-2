@@ -1,0 +1,85 @@
+@use '../../styles/variables' as *;
+
+.dress-code {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  padding: 48px 24px 0;
+  text-align: center;
+  color: #111;
+  overflow: visible;
+
+  @media (min-width: $bp-tablet) {
+    gap: 28px;
+    padding-top: 64px;
+  }
+}
+
+.dress-code__heading {
+  font-family: $font-script;
+  font-size: 48px;
+  font-weight: 400;
+  line-height: 1.25;
+
+  @media (min-width: $bp-tablet) {
+    font-size: 52px;
+  }
+}
+
+.dress-code__text {
+  max-width: 520px;
+  font-family: $font-sans;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.55;
+}
+
+.dress-code__decor {
+  position: relative;
+  top: -50px;
+  left: 0;
+  width: calc(100% + 48px);
+  margin-inline: -24px;
+  margin-top: 56px;
+  margin-bottom: -280px;
+  height: 500px;
+  overflow: hidden;
+  flex-shrink: 0;
+  line-height: 0;
+
+  @media (min-width: $bp-tablet) {
+    margin-top: 0;
+    margin-bottom: -140px;
+  }
+}
+
+.dress-code__decor-img {
+  display: block;
+  width: 560px;
+  max-width: none;
+  height: auto;
+  margin-inline: -20%;
+  transform-origin: center center;
+  animation: dress-code-decor-motion 14s infinite linear;
+
+  @media (min-width: $bp-tablet) {
+    width: 960px;
+  }
+}
+
+@keyframes dress-code-decor-motion {
+  0% {
+    transform: rotate(0deg) scale(1, 1);
+    animation-timing-function: ease-in-out;
+  }
+
+  50% {
+    transform: rotate(-10deg) scale(1.2, 1.2);
+    animation-timing-function: ease-in-out;
+  }
+
+  100% {
+    transform: rotate(0deg) scale(1, 1);
+  }
+}
