@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { PageLayout } from './layouts/PageLayout'
 import {
   DressCode,
@@ -7,8 +8,11 @@ import {
   Schedule,
   Venue,
 } from './sections'
+import { enableContentProtection } from './utils/contentProtection'
 
 function App() {
+  useEffect(() => enableContentProtection(), [])
+
   return (
     <PageLayout>
       <Hero />
