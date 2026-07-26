@@ -1,0 +1,256 @@
+@use "../../styles/variables" as *;
+
+.hero {
+  position: relative;
+  overflow: visible;
+  min-height: 105svh;
+  display: flex;
+  flex-direction: column;
+}
+
+.hero__decor {
+  position: relative;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  flex-shrink: 0;
+  line-height: 0;
+}
+
+.hero__decor-img {
+  display: block;
+  width: 560px;
+  max-width: none;
+  height: auto;
+  margin-inline: -20%;
+  transform-origin: center center;
+
+  @media (min-width: $bp-tablet) {
+    width: 960px;
+  }
+}
+
+.hero__decor--bottom {
+  top: -50px;
+  bottom: auto;
+  margin-top: auto;
+  margin-bottom: -280px;
+  height: 500px;
+
+  @media (min-width: $bp-tablet) {
+    margin-bottom: -140px;
+  }
+}
+
+.hero__decor-img--bottom {
+  animation: hero-decor-motion-bottom 14s infinite linear;
+}
+
+@keyframes hero-decor-motion-bottom {
+  0% {
+    transform: rotate(0deg) scale(1, 1);
+    animation-timing-function: ease-in-out;
+  }
+
+  50% {
+    transform: rotate(-10deg) scale(1.2, 1.2);
+    animation-timing-function: ease-in-out;
+  }
+
+  100% {
+    transform: rotate(0deg) scale(1, 1);
+  }
+}
+
+.hero__content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 24px;
+  margin-top: -60px;
+  padding: 0 24px 40px;
+  text-align: center;
+
+  @media (min-width: $bp-tablet) {
+    margin-top: -80px;
+  }
+}
+
+.hero__names {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: $font-names;
+  font-size: 52px;
+  font-weight: 400;
+  letter-spacing: 1px;
+  line-height: 1.15;
+
+  @media (min-width: $bp-tablet) {
+    font-size: 56px;
+    letter-spacing: 2px;
+  }
+}
+
+.hero__date {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  color: #111;
+}
+
+.hero__date-row {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  max-width: 300px;
+}
+
+.hero__date-side {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top: 1px solid currentColor;
+  border-bottom: 1px solid currentColor;
+  padding-block: 4px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 4px;
+  line-height: 1;
+  text-indent: 4px;
+  white-space: nowrap;
+
+  @media (min-width: $bp-tablet) {
+    font-size: 13px;
+    letter-spacing: 5px;
+    text-indent: 5px;
+  }
+}
+
+.hero__date-day {
+  font-size: 48px;
+  font-weight: 400;
+  line-height: 0.9;
+  letter-spacing: -1px;
+
+  @media (min-width: $bp-tablet) {
+    font-size: 52px;
+  }
+}
+
+.hero__date-weekday {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 5px;
+  text-indent: 5px;
+  text-transform: uppercase;
+  line-height: 1;
+
+  @media (min-width: $bp-tablet) {
+    font-size: 13px;
+    letter-spacing: 6px;
+    text-indent: 6px;
+  }
+}
+
+.hero__timer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  max-width: 320px;
+  margin-top: 0;
+  color: #111;
+}
+
+.hero__timer-title {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-indent: 3px;
+  text-transform: uppercase;
+  line-height: 1;
+
+  @media (min-width: $bp-tablet) {
+    font-size: 10px;
+  }
+}
+
+.hero__timer-grid {
+  display: flex;
+  justify-content: center;
+  width: auto;
+  gap: 0;
+
+  @media (min-width: $bp-tablet) {
+    gap: 6px;
+  }
+}
+
+.hero__timer-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding-inline: 6px;
+
+  @media (min-width: $bp-tablet) {
+    padding-inline: 12px;
+  }
+}
+
+.hero__timer-value {
+  font-size: 28px;
+  font-weight: 400;
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+
+  @media (min-width: $bp-tablet) {
+    font-size: 40px;
+  }
+}
+
+.hero__timer-label {
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-indent: 1px;
+  text-transform: uppercase;
+  line-height: 1;
+
+  @media (min-width: $bp-tablet) {
+    font-size: 9px;
+    letter-spacing: 2px;
+    text-indent: 2px;
+  }
+}
+
+.hero__arrow {
+  width: 24px;
+  height: auto;
+  margin-top: 8px;
+  animation: hero-arrow-bounce 1.6s ease-in-out infinite;
+
+  @media (min-width: $bp-tablet) {
+    width: 28px;
+  }
+}
+
+@keyframes hero-arrow-bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.7;
+  }
+
+  50% {
+    transform: translateY(20px);
+    opacity: 1;
+  }
+}

@@ -1,10 +1,26 @@
 <!doctype html>
-<html lang="en">
+<html lang="ru">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Талгат и Айжана</title>
+    <style>
+      html,
+      body {
+        margin: 0;
+        background: #e0e0e0;
+      }
+
+      #root {
+        opacity: 0;
+      }
+
+      html.fonts-ready #root {
+        opacity: 1;
+        transition: opacity 0.25s ease;
+      }
+    </style>
   </head>
   <body>
     <div id="root"></div>

@@ -1,0 +1,47 @@
+@use '../../styles/variables' as *;
+
+.decor-band {
+  position: relative;
+  top: -40px;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  flex-shrink: 0;
+  line-height: 0;
+  height: 240px;
+
+  @media (min-width: $bp-tablet) {
+    top: -60px;
+    height: 380px;
+  }
+}
+
+.decor-band__img {
+  display: block;
+  width: 560px;
+  max-width: none;
+  height: auto;
+  margin-inline: -20%;
+  transform-origin: center center;
+  animation: decor-band-motion 14s infinite linear;
+
+  @media (min-width: $bp-tablet) {
+    width: 960px;
+  }
+}
+
+@keyframes decor-band-motion {
+  0% {
+    transform: rotate(0deg) scale(1, 1);
+    animation-timing-function: ease-in-out;
+  }
+
+  50% {
+    transform: rotate(10deg) scale(1.2, 1.2);
+    animation-timing-function: ease-in-out;
+  }
+
+  100% {
+    transform: rotate(0deg) scale(1, 1);
+  }
+}

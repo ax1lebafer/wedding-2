@@ -1,0 +1,161 @@
+@use "../../styles/variables" as *;
+
+.calendar {
+  width: 100%;
+  max-width: 260px;
+  margin-top: 24px;
+  color: #111;
+  overflow: visible;
+
+  @media (min-width: $bp-tablet) {
+    max-width: 270px;
+    margin-top: 32px;
+  }
+}
+
+.calendar__header {
+  display: flex;
+  align-items: baseline;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.calendar__month {
+  margin-right: auto;
+  font-family: $font-script;
+  font-size: 40px;
+  font-weight: 400;
+  line-height: 1;
+
+  @media (min-width: $bp-tablet) {
+    font-size: 48px;
+  }
+}
+
+.calendar__year {
+  flex: 0 0 calc(100% / 7);
+  font-family: $font-sans;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1;
+  text-align: center;
+  margin-right: 5px;
+
+  @media (min-width: $bp-tablet) {
+    font-size: 20px;
+  }
+}
+
+.calendar__weekdays,
+.calendar__grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  text-align: center;
+}
+
+.calendar__weekdays {
+  margin-bottom: 12px;
+}
+
+.calendar__weekday {
+  font-family: $font-sans;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1;
+
+  @media (min-width: $bp-tablet) {
+    font-size: 14px;
+  }
+}
+
+.calendar__grid {
+  row-gap: 14px;
+  overflow: visible;
+
+  @media (min-width: $bp-tablet) {
+    row-gap: 10px;
+  }
+}
+
+.calendar__day {
+  position: relative;
+  z-index: 0;
+  font-family: $font-sans;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1;
+
+  @media (min-width: $bp-tablet) {
+    font-size: 16px;
+  }
+}
+
+.calendar__day--outside {
+  color: #c4c4c4;
+}
+
+.calendar__day--highlight {
+  z-index: 5;
+  overflow: visible;
+}
+
+.calendar__heart {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 42px;
+  height: auto;
+  max-width: none;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 6;
+  transform: translate(-50%, -50%) scale(12);
+  transform-origin: center center;
+  will-change: transform, opacity, filter;
+
+  @media (min-width: $bp-tablet) {
+    width: 48px;
+  }
+}
+
+.calendar--heart-animate .calendar__heart {
+  animation: calendar-heart-stamp 2.2s cubic-bezier(0.33, 0.1, 0.25, 1) forwards;
+}
+
+@keyframes calendar-heart-stamp {
+  0% {
+    opacity: 0;
+    filter: blur(8px);
+    transform: translate(-50%, -50%) scale(12);
+  }
+
+  22% {
+    opacity: 0.7;
+    filter: blur(3px);
+    transform: translate(-50%, -50%) scale(9);
+  }
+
+  78% {
+    opacity: 1;
+    filter: blur(0);
+    transform: translate(-50%, -50%) scale(1.04);
+  }
+
+  100% {
+    opacity: 1;
+    filter: blur(0);
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .calendar__heart {
+    opacity: 1;
+    filter: none;
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  .calendar--heart-animate .calendar__heart {
+    animation: none;
+  }
+}
