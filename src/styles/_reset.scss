@@ -24,6 +24,9 @@ body {
   font-weight: 400;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
 }
 
 img,
@@ -31,6 +34,9 @@ svg,
 video {
   display: block;
   max-width: 100%;
+  -webkit-user-drag: none;
+  user-select: none;
+  pointer-events: auto;
 }
 
 button,
@@ -39,6 +45,12 @@ textarea,
 select {
   font: inherit;
   color: inherit;
+}
+
+input,
+textarea {
+  user-select: text;
+  -webkit-user-select: text;
 }
 
 a {
