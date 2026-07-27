@@ -27,7 +27,7 @@ export function Invitation() {
       >
         <h2 className="invitation__heading">
           <span>Дорогие наши</span>
-          <span>друзья и родные!</span>
+          <span>родные и друзья!</span>
         </h2>
 
         <p className="invitation__text">
